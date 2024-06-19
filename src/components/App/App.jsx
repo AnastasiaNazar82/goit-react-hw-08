@@ -2,8 +2,8 @@ import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../Layout/Layout";
-import RestrictedRoute from "../RestrictedRoute";
-import PrivateRoute from "../PrivateRoute";
+import RestrictedRoute from "../RestrictedRoute/RestrictedRoute";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import { refreshUser } from "../../redux/auth/operations";
 import { selectIsRefreshing } from "../../redux/auth/selectors";
 
@@ -23,7 +23,7 @@ export default function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <div>REFRESHING USER...</div>
+    <div>Refreshing user...</div>
   ) : (
     <Layout>
       <Suspense fallback={null}>

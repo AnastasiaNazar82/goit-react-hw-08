@@ -5,8 +5,8 @@ export default function HomePage() {
   return (
     <div>
       <PageTitle>
-        <p className={"css.text"}>
-          Hello! You're on the main page of your Contact Book
+        <p className={css.text}>
+          Hello! You are on the main page of your Contact Book.
         </p>
       </PageTitle>
     </div>

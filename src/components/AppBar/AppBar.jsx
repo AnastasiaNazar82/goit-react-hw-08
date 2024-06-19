@@ -11,9 +11,9 @@ export default function AppBar() {
 
   return (
     <header className={css.header}>
-      <Toaster position="top-center" reverseOrder={false} />
       <Navigation />
       {isLoggenIn ? <UserMenu /> : <AuthNav />}
+      <Toaster position="top-center" reverseOrder={false} />
     </header>
   );
 }

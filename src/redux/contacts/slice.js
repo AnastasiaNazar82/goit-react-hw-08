@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addContact, deleteContact, fetchContacts } from "./operations";
+import {
+  addContact,
+  deleteContact,
+  fetchContacts,
+} from "./../contacts/operations";
+import { logout } from "../auth/operations";
 
 const contactsSlice = createSlice({
   name: "contacts",
@@ -19,9 +24,9 @@ const contactsSlice = createSlice({
         state.error = false;
         state.loading = false;
       })
-      .addCase(fetchContacts.rejected, (state) => {
+      .addCase(fetchContacts.rejected, (state, action) => {
         state.loading = false;
-        state.error = true;
+        state.error = action.payload;
       })
       .addCase(addContact.pending, (state) => {
         state.error = false;
@@ -32,9 +37,9 @@ const contactsSlice = createSlice({
         state.error = false;
         state.loading = false;
       })
-      .addCase(addContact.rejected, (state) => {
+      .addCase(addContact.rejected, (state, action) => {
         state.loading = false;
-        state.error = true;
+        state.error = action.payload;
       })
       .addCase(deleteContact.pending, (state) => {
         state.error = false;
@@ -49,9 +54,14 @@ const contactsSlice = createSlice({
         state.loading = false;
       })
 
-      .addCase(deleteContact.rejected, (state) => {
+      .addCase(deleteContact.rejected, (state, action) => {
         state.loading = false;
-        state.error = true;
+        state.error = action.payload;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.items = [];
+        state.loading = false;
+        state.error = null;
       });
   },
 });
