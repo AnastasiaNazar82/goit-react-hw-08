@@ -32,15 +32,15 @@ export default function RegistrationForm() {
         <Form className={css.form} autoComplete="off">
           <label className={css.label}>
             Username
-            <Field className={css.input} type="text" name="name" />
+            <Field className={css.form_input} type="text" name="name" />
           </label>
           <label className={css.label}>
             Email
-            <Field className={css.input} type="email" name="email" />
+            <Field className={css.form_input} type="email" name="email" />
           </label>
           <label className={css.label}>
             Password
-            <Field className={css.input} type="password" name="password" />
+            <Field className={css.form_input} type="password" name="password" />
           </label>
           <button className={css.btn} type="submit">
             Register
